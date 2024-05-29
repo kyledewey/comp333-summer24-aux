@@ -2,9 +2,6 @@
 // Argument says where to write the output
 // (file, console)
 
-import java.io.File;
-import java.io.FileOutputStream;
-
 public class Temp {
     // Returns the name of the file to write to,
     // or null if we want to write to the console
@@ -13,19 +10,24 @@ public class Temp {
 	return null;
     }
     
+    public static int doComputation(Writer writer) {
+	int x = 1 + 2;
+
+	writer.writeThing("Intermediate result: " + x);
+
+	int y = x * 3;
+
+	return y + 4;
+    }
+    
     public static void main(String[] args) throws Exception {
 	String filename = getFilename(args);
-
+	Writer writer = new Writer(filename);
+	
 	// do some computation
-	int result = 1 + 2;
+	int result = doComputation(writer);
 
-	if (filename != null) {
-	    File file = new File(filename);
-	    FileOutputStream stream = new FileOutputStream(file);
-	    stream.write(result);
-	    stream.close();
-	} else {
-	    System.out.println(result);
-	}
+	writer.writeThing(result);
+	writer.close();
     }
 }
