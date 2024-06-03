@@ -14,6 +14,7 @@ public class Temp {
     public static int doComputation(Writer writer) {
 	int x = 1 + 2;
 
+	// ad-hoc polymorphism
 	writer.writeThing("Intermediate result: " + x);
 
 	int y = x * 3;
