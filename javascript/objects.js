@@ -18,6 +18,10 @@
 //     }
 // }
 
+function add(x, y) {
+    return x + y;
+}
+
 function Rectangle(width, height) {
     // this = {};
     // this.__proto__ = Rectangle.prototype;
@@ -36,6 +40,10 @@ Rectangle.prototype.getWidth = function () {
     return this.width;
 }
 
-function add(x, y) {
-    return x + y;
+
+function Circle(radius) {
+    this.radius = radius;
+}
+Circle.prototype.getRadius = function() {
+    return this.radius;
 }
